@@ -30,7 +30,9 @@ public class XmlTagDelimitedText implements DelimitedText {
     
     private static final Pattern tagPattern = Pattern.compile(XML_TAG_REGEX);
     
-    private static final String XML_NAME_REGEX = "</?([^ \n]*)[ \n]?.*>";
+    private static final String XML_TAG_NAME_REGEX = "([^ \n\t]*)";
+    private static final String XML_PARAMETERS_REGEX = "(\n|.)*";
+    private static final String XML_NAME_REGEX = "</?" + XML_TAG_NAME_REGEX + XML_PARAMETERS_REGEX + ">";
     
     private static final Pattern tagNamePattern = Pattern.compile(XML_NAME_REGEX);
     
